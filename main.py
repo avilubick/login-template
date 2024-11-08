@@ -2,7 +2,7 @@ def userIn(user):  # read users content file
     with open(f"users/{user}.txt", 'r') as userContent: x = userContent.read().split("*");userContent.close();return x
 
 def find(content, user):
-    if content == ['']: print("None")  # if user hasent saved anything (prob new user)
+    if content == ['']: print("None")  # if user hasn't saved anything (prob new user)
     inputIn = input("(1)Add, (2)Find or (3)Exit?\n> ")
     if inputIn == "1":  # if add
         catAdd = input("Add what catagory?\n> ")
@@ -14,7 +14,7 @@ def find(content, user):
         find(content,user)
     elif inputIn == "2":  # if find
         inp = input(f"{[i for val2, i in enumerate(content) if val2 % 2 == 0]}\nCatagory?\n> ")  # get input
-        print(content[content.index(inp) + 1]) if inp in content else print("Not Found")  # look for input/FIX IF NO INPUT
+        print("Not Found") if inp == "" else print(content[content.index(inp) + 1]) if inp in content else print("Not Found")  # look for input
         find(content,user)
     elif inputIn == "3":
         file()  # restart code
@@ -48,4 +48,6 @@ def file():
 
     find(content,user)  #once logged in, search tool
 file()
+
+
 
