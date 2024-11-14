@@ -25,7 +25,7 @@ def file():
     enterSelection = input("(1)Log In (2)Register\n> ") #Enter prompt
     if enterSelection == "2":   #if register
         newUserName = input("New Username:\n> ").lower()
-        with open("users.txt", "r") as userCheck: users=userCheck.read();userCheck.close()#read all users from file
+        with open("users.txt", "r") as userCheck: users=userCheck.read();userCheck.close()    #read all users from file
         if newUserName in users.split("*"):     #if user in saved
             print("Error: User already exists")
             file()     #restart
